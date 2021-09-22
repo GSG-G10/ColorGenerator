@@ -32,7 +32,9 @@ const Navbar = () => {
 
         <Switch>
           <Route path="/generator">
+          <Colorp>
             <Generator />
+          </Colorp>
           </Route>
           <Route path="/favorite">
             <Colorp>

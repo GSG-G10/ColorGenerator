@@ -1,8 +1,6 @@
-import React,{useState,createContext,useContext,useEffect} from "react";
+import React,{useContext,useEffect} from "react";
 import {coloercontext} from '../context/coloercontext' 
 const Favorite = () => {
-
-    
     const fav = useContext(coloercontext)
     const {favoriteColors, setfavoriteColors} = fav
     useEffect(() => {
@@ -11,16 +9,18 @@ const Favorite = () => {
             setfavoriteColors([])
         }else{
             setfavoriteColors(JSON.parse(localStorage.colorList))
-
         }
-        
     },[])
 
     return (
-            <div >
-                {favoriteColors.map((color)=> <h1 style={{backgroundColor:color}}>{color}</h1>)}
-                </div>
-    )
-    };
+        
+    <div >
+        <button onClick={()=> {
+            localStorage.clear()
+            setfavoriteColors([])
+            }}>clear</button>
+        {favoriteColors.map((color)=> <h1 style={{backgroundColor:color}}>{color}</h1>)}
+    </div>
+    )};
 
 export default Favorite
