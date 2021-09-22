@@ -1,6 +1,7 @@
-import React,{useEffect,useState,useContext} from "react";
+import React,{useEffect,useContext} from "react";
 
-import {coloercontext} from '../context/coloercontext' 
+import {coloercontext} from '../context/coloercontext';
+import savelocalstorge from '../generalfunc/savelocalstorge';
 const axios = require('axios');
 
 const Random = () => {
@@ -18,25 +19,6 @@ const Random = () => {
         })
         
     },[])
-
-    const savelocalstorge = (color) => {
-        let localStorageData;
-        try {
-            localStorageData = JSON.parse(localStorage.colorList)
-        } catch (error) {
-            localStorageData = 'erorr'
-        }
-        
-        if (typeof localStorageData != 'object'){
-            localStorage.setItem('colorList',JSON.stringify([color]))
-        }else {
-            localStorageData.push(color)
-            localStorage.setItem('colorList',JSON.stringify(localStorageData))
-        }        
-    }
-    
-
-
 
     return (
         <>
