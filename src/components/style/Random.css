@@ -1,0 +1,26 @@
+.random{
+    display: flex;    
+    flex-wrap: wrap;
+}
+.color-box{
+    width: 25%;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    color: wheat;
+    border-radius: 11.2rem;
+    margin-bottom: 5px;
+}   
+
+.color-box:hover{
+    opacity: 0.9;
+
+}   
+
+
+
+
+h1{
+    text-align: center;
+    padding-bottom: 3rem;
+}
