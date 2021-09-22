@@ -2,9 +2,7 @@ import React from 'react';
 import Favorite from './Favorite'
 import Generator from './Generator'
 import Random from './Random'
-
-
-
+import Colorp from '../context/coloercontext'
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +15,6 @@ const Navbar = () => {
     return (
         <>
         <Router>
-
         <ul>
             <li>
             color generator
@@ -38,16 +35,18 @@ const Navbar = () => {
             <Generator />
           </Route>
           <Route path="/favorite">
-            <Favorite />
+            <Colorp>
+              <Favorite />
+            </Colorp>
           </Route>
           <Route path="/random">
-            <Random />
+            <Colorp>
+              <Random />
+            </Colorp>
+
           </Route>
         </Switch>
-
         </Router>
-
-
         </>
     )
     };
