@@ -1,5 +1,6 @@
 import React,{useContext,useEffect} from "react";
-import {coloercontext} from '../context/coloercontext' 
+import {coloercontext} from '../context/coloercontext';
+import './style/Random.css';
 const Favorite = () => {
     const fav = useContext(coloercontext)
     const {favoriteColors, setfavoriteColors} = fav
@@ -13,14 +14,18 @@ const Favorite = () => {
     },[])
 
     return (
-        
-    <div >
+        <>
+        <h1>Favorite</h1>
         <button onClick={()=> {
             localStorage.clear()
             setfavoriteColors([])
-            }}>clear</button>
-        {favoriteColors.map((color)=> <h1 style={{backgroundColor:color}}>{color}</h1>)}
-    </div>
+            }} >clear</button>
+    <section className='random'>
+        {favoriteColors.map((color)=> <div className='color-box' style={{backgroundColor:color}}> <h1> {color}</h1> </div>)}
+    
+    </section>
+
+    </>
     )};
 
 export default Favorite

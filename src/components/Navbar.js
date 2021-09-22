@@ -2,7 +2,11 @@ import React from 'react';
 import Favorite from './Favorite'
 import Generator from './Generator'
 import Random from './Random'
+import Home from './Home'
+
 import Colorp from '../context/coloercontext'
+import './style/Navbar.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,33 +19,37 @@ const Navbar = () => {
     return (
         <>
         <Router>
-        <ul>
-            <li>
+        <ul className='navbar'>
+            <li className='title'>
             color generator
             </li>
-            <li>
+           
+            <li className='pages'>
             <Link to="/random">random</Link>
             </li>
-            <li>
+            <li className='pages'>
             <Link to="/generator">Generator</Link>
             </li>
-            <li>
+            <li className='pages'>
             <Link to="/favorite">Favorite</Link>
             </li>
         </ul>
 
         <Switch>
-          <Route path="/generator">
-          <Colorp>
-            <Generator />
-          </Colorp>
+          <Route exact path="/">
+            <Home />
           </Route>
-          <Route path="/favorite">
+          <Route exact path="/generator">
+            <Colorp>
+              <Generator />
+            </Colorp>
+          </Route>
+          <Route exact path="/favorite">
             <Colorp>
               <Favorite />
             </Colorp>
           </Route>
-          <Route path="/random">
+          <Route exact path="/random">
             <Colorp>
               <Random />
             </Colorp>
@@ -50,7 +58,7 @@ const Navbar = () => {
         </Switch>
         </Router>
         </>
-    )
+    ) 
     };
 
 export default Navbar

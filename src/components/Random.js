@@ -1,7 +1,8 @@
 import React,{useEffect,useContext} from "react";
-
 import {coloercontext} from '../context/coloercontext';
 import savelocalstorge from '../generalfunc/savelocalstorge';
+import './style/Random.css';
+
 const axios = require('axios');
 
 const Random = () => {
@@ -22,11 +23,12 @@ const Random = () => {
 
     return (
         <>
-        
+        <h1>color</h1>
+        <section className='random'>
         {RandomColors.map((color) => {
             return (
-            <div>
-            <h1 style={{backgroundColor:color.hex.value}}>{color.hex.value}</h1>
+            <div className='color-box' style={{backgroundColor:color.hex.value}}>
+            <h1 >{color.hex.value}</h1>
             <button onClick={() => {
                 savelocalstorge(color.hex.value)
                 favoriteColors.push(color.hex.value)
@@ -36,6 +38,7 @@ const Random = () => {
 
                 )
         })}
+        </section>
         </>
     )
     };
