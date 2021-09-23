@@ -1,38 +1,30 @@
-import React from 'react';
-import Favorite from './Favorite'
-import Generator from './Generator'
-import Random from './Random'
-import Home from './Home'
+import React from "react";
+import Favorite from "./Favorite";
+import Generator from "./Generator";
+import Random from "./Random";
+import Home from "./Home";
 
-import Colorp from '../context/coloercontext'
-import './style/Navbar.css';
+import Colorp from "../context/coloercontext";
+import "./style/Navbar.css";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Navbar = () => {
-    return (
-        <>
-        <Router>
-        <ul className='navbar'>
-            <li className='title'>
-            color generator
-            </li>
-           
-            <li className='pages'>
+  return (
+    <>
+      <Router>
+        <ul className="navbar">
+          <li className="title">color generator</li>
+
+          <li className="pages">
             <Link to="/random">random</Link>
-            </li>
-            <li className='pages'>
+          </li>
+          <li className="pages">
             <Link to="/generator">Generator</Link>
-            </li>
-            <li className='pages'>
+          </li>
+          <li className="pages">
             <Link to="/favorite">Favorite</Link>
-            </li>
+          </li>
         </ul>
 
         <Switch>
@@ -53,12 +45,11 @@ const Navbar = () => {
             <Colorp>
               <Random />
             </Colorp>
-
           </Route>
         </Switch>
-        </Router>
-        </>
-    ) 
-    };
+      </Router>
+    </>
+  );
+};
 
-export default Navbar
+export default Navbar;
